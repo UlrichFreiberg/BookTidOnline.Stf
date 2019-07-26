@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<configuration xmlns="http://www.testautomation.com/yacf" version="2013.04.21.0">
+  <section name="StfKernel">
+    <!--<key name="PluginPath" value="%STF_ROOT%\Plugins\" />-->
+    <key name="PluginPath" value="D:\Projects\BookTidOnline.Stf\StfBin" />
+    <key name="PluginPatterns" value="Mir.Stf.*.dll;BookTidOnline.Stf.*.dll" />
+    <key name="ArchiveTestResults" value="true" />
+    <key name="ArchiveDestination" value="%STF_ROOT%\archiveDir" />
+    <section name="StfLogger">
+      <key name="PathToLogoImageFile" value="C:\temp\Stf\Images\BookTidOnline.png" />
+      <key name="HeaderForegroundColor" value="white" />
+      <key name="HeaderBackgroundColor" value="rgba(13, 93, 140, 1)" />
+    </section>
+  </section>
+
+  <!-- 
+  This section could go into c:\temp\Stf\Configuration\StfConfiguration_Machine.xml
+  
+  If you dont want passwords etc to be public...
+  -->
+  <section name="Environments" defaultsection="UAT">
+    <section name="Prod">
+      <section name="DisplayTargets">
+        <section name="BookTidOnlineWeb">
+          <section name="Users" defaultsection="%USERNAME%">
+            <section name="YourWindowsName">
+              <key name="UserName" value="### FILL IN ###" />
+              <key name="Password" value="### FILL IN ###" />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+
+    <section name="UAT">
+      <section name="Users" defaultsection="%USERNAME%">
+        <section name="DisplayTargets">
+          <section name="BookTidOnlineWeb">
+            <section name="Ulrich">
+              <key name="UserName" value="god@heaven.com" />
+              <key name="Password" value="Amen42" />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+
+  </section>
+
+</configuration>

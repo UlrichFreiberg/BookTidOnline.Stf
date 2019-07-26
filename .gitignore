@@ -1,0 +1,14 @@
+*.Cache
+Thumbs.db
+*.suo
+**/StfBin/**
+**/bin/**
+**/obj/**
+*.user
+**/packages/**
+**/TestResults/**
+*.nupkg
+/.vs/config/applicationhost.config
+/Doc/~$BookTidOnline_testcases.xlsx
+/Doc/.~lock.ExcelTM for STF.xlsm#
+.vs/**
