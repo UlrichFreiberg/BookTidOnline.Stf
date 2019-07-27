@@ -5,7 +5,7 @@
     <section name="Prod">
       <section name="DisplayTargets">
         <section name="BookTidOnlineWeb">
-          <key name="BaseUrl" value="https://shop.booktidonline.dk/Account/Login" />
+          <key name="BaseUrl" value="http://booktidonline.dk/" />
           <key name="Browser" value="Chrome" />
 
           <section name="Users" defaultsection="%USERNAME%">

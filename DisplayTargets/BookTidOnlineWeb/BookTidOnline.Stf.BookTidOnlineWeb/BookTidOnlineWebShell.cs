@@ -99,6 +99,13 @@ namespace BookTidOnline.Stf.BookTidOnlineWeb
             userName = HandleDefault(userName, BtoWebConfiguration.UserName);
             password = HandleDefault(password, BtoWebConfiguration.Password);
 
+            // CLick the login 
+            if (!WebAdapter.Click(By.XPath("//a[@href='/Account/Login']")))
+            {
+                StfLogger.LogError("Couldn't press login");
+                return false;
+            }
+
             // fill in credentials
             WebAdapter.TextboxSetTextById("Email", userName);
             WebAdapter.TextboxSetTextById("password", password);
