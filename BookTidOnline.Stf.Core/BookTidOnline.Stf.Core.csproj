@@ -104,9 +104,19 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>robocopy $(ProjectDir)Configuration\Config C:\Temp\Stf\Config StfConfiguration.xml
-robocopy $(SolutionDir)..\..\Utils\AutomationScripts C:\Temp\Stf\AutomationScripts *.* /MIR
+    <PostBuildEvent>REM
+REM copy the config and image to StfBin
+REM
+robocopy $(ProjectDir)Configuration\Config C:\Temp\Stf\Config StfConfiguration.xml
+
 robocopy $(SolutionDir)Images C:\Temp\Stf\Images *.* /MIR
+
+REM
+REM set the plugin folder to $(SolutionDir)\StfBin
+REM
+powershell -ExecutionPolicy Bypass -file "$(SolutionDir)\tools\Stf-SetPluginPath.ps1" -PluginFolderType build
+
+
 exit /b 0</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,7 +22,7 @@ echo Building %BUILD_SOLUTION% with this setup
 set BUILD
 
 REM Build the solutions
-powershell -file "%BUILD_SCRIPT_PS%" -buildRoot %BUILD_ROOT%
+powershell -ExecutionPolicy Bypass -file "%BUILD_SCRIPT_PS%" -buildRoot %BUILD_ROOT%
 
 REM Make sure all the needed Selenium servers are present
 robocopy "%BUILD_SELENIUM_SERVERS%" "%BUILD_DEPLOY_DIR%\Selenium" /MIR
@@ -31,7 +31,10 @@ REM Deploy the solutions and corresponding configuration
 robocopy "%BUILD_BIN%"               "%BUILD_DEPLOY_DIR%\StfBin" /MIR
 robocopy "%BUILD_CONFIGURATION_DIR%" "%BUILD_DEPLOY_DIR%\Config" StfConfiguration.xml
 
-REM make sure we have a temp
+REM make sure we have a STF temp
 if NOT exist "%BUILD_DEPLOY_DIR%\Temp" (
   mkdir "%BUILD_DEPLOY_DIR%\Temp"
 )
+
+rem Set the plugin folder to the build folder
+powershell -ExecutionPolicy Bypass -file "%BUILD_ROOT%\tools\Stf-SetPluginPath.ps1" -PluginFolderType build
